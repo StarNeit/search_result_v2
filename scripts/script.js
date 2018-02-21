@@ -51,6 +51,49 @@ $(document).ready(function(){
             $(this).text("FOLLOWING");
         }
     });
+
+
+    /**
+     * Search Result V2
+     */
+    $(".search_result__tab").on("click", function(){
+        $('.search_result__tab').removeClass("search_result__tab-active");
+        $(this).addClass("search_result__tab-active");
+    });
+
+    $("#search_menu__company").on("click", function () {
+        $(".search_result__tab__content > div").hide();
+        $(".search_result__tab__content-company").show();
+    });
+
+    $("#search_menu__category").on("click", function () {
+        $(".search_result__tab__content > div").hide();
+        $(".search_result__tab__content-category").show();
+    });
+
+    $("#search_menu__news").on("click", function () {
+        $(".search_result__tab__content > div").hide();
+        $(".search_result__tab__content-news").show();
+    });
+
+
+    $(".cat_sidemenu__md_title2").on("click", function(){
+        $(".cat_sidemenu input[type='checkbox']").prop("checked", false);
+    });
+
+    $(".cat_sidemenu__public_header3 input[type='checkbox']").on("click", function(){
+        var len = $(".cat_sidemenu__public_header3 input[type='checkbox']:checked").length;
+        if (len == 44){
+            $(".cat_sidemenu__public_header2 input[type='checkbox']").prop("checked", true);
+        }else{
+            $(".cat_sidemenu__public_header2 input[type='checkbox']").prop("checked", false);
+        }
+    });
+
+    $(".cat_sidemenu__public_header2 input[type='checkbox']").on("click", function() {
+        if ($(".cat_sidemenu__public_header2 input[type='checkbox']:checked"))
+            $(".cat_sidemenu__public_header3 input[type='checkbox']").prop("checked", true);
+    });
 });
 
 var lastScrollTop = 0;
